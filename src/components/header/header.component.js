@@ -18,21 +18,18 @@ const Header = ({currentUser, hidden}) => (
             <Link className="option" to="/shop">SHOP</Link>
             <Link className="option" to="/contact">CONTACT</Link>
             {
-                currentUser ?
+                currentUser ? (
                 <div className="option" onClick={()=>auth.signOut() }>SIGN OUT</div>
-                : 
+                 ) : (
                 <Link className="option" to='/signin'>SIGN IN</Link>
-            }
+                 )}
             <CartIcon />
         </div>
-       {
-           hidden ? null :  <CartDropdown />
-           
-       }
+       { hidden ? null :  <CartDropdown />  }
        
 
     </div>
-)
+);
 
 //state is top level root reducer
 const mapStateToProps = ({user:{currentUser}, cart: {hidden}}) => ({
